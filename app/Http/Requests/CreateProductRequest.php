@@ -22,27 +22,26 @@ class CreateProductRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'product_name' => 'required',
-            'product_price' => 'required',
-            'product_description' => 'required|max:255',
+            'name' => 'required',
+            'description' => 'required|max:255',
         ];
     }
 
-    public function messages(): array
-    {
-        return [
-            'product_description.max' => ':attribute should not be more than 255 characters',
-            'product_description.required' => ':attribute should not be more than 255 characters',
-        ];
-    }
+    // public function messages(): array
+    // {
+    //     return [
+    //         'product_description.max' => ':attribute should not be more than 255 characters',
+    //         'product_description.required' => ':attribute should not be more than 255 characters',
+    //     ];
+    // }
 
-    public function attributes(): array
-    {
-        return [
-            'product_name' => 'Product Name',
-            'product_price' => 'Product Price',
-            'product_description' => 'Product Description',
-            'image' => 'Product Image',
-        ];
-    }
+    // public function attributes(): array
+    // {
+    //     return [
+    //         'product_name' => 'Product Name',
+    //         'product_price' => 'Product Price',
+    //         'product_description' => 'Product Description',
+    //         'image' => 'Product Image',
+    //     ];
+    // }
 }

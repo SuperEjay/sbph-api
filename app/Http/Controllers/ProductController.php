@@ -3,14 +3,24 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\CreateProductRequest;
+use App\Models\ProductModel;
+use App\Traits\ApiResponse;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
-    public function index() {}
+    use ApiResponse;
 
-    public function save(CreateProductRequest $request)
+    public function index()
     {
-        $request->validated();
+        $products = ProductModel::all();
+
+        return $this->successResponse($products);
+    }
+
+    public function store(CreateProductRequest $request)
+    {
+        $product = ProductModel::create($request->all());
+        return $this->successResponse($product);
     }
 }
